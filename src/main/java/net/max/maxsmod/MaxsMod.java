@@ -1,6 +1,9 @@
 package net.max.maxsmod;
 
 import com.mojang.logging.LogUtils;
+import net.max.maxsmod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -23,6 +26,9 @@ public class MaxsMod
     public MaxsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // Call ModItems class to register added items
+        ModItems.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -38,7 +44,9 @@ public class MaxsMod
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-
+        if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.ZIRCON);
+        }
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
