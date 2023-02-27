@@ -11,7 +11,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MaxsMod.MOD_ID);
 
-    public static final RegistryObject<Item> ZIRCON = ITEMS.register("zircon",
+    public static final RegistryObject<Item> ADAMANT = ITEMS.register("adamant",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {

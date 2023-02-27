@@ -1,6 +1,7 @@
 package net.max.maxsmod;
 
 import com.mojang.logging.LogUtils;
+import net.max.maxsmod.item.ModCreativeModeTabs;
 import net.max.maxsmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -45,7 +46,11 @@ public class MaxsMod
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.ZIRCON);
+            event.accept(ModItems.ADAMANT);
+        }
+
+        if (event.getTab() == ModCreativeModeTabs.MAXS_TAB) {
+            event.accept(ModItems.ADAMANT);
         }
     }
 
