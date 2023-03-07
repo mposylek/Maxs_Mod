@@ -1,5 +1,7 @@
 {
-  "item.maxsmod.adamant": "Adamant",
+  "block.maxsmod.adamant": "Adamant Block",
+
+  "item.maxsmod.adamant_shard": "Adamant Shard",
 
   "creativemodetab.maxs_tab": "Max's Tab"
 }

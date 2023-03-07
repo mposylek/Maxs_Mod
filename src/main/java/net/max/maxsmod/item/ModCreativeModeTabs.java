@@ -16,7 +16,7 @@ public class ModCreativeModeTabs {
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         MAXS_TAB = event.registerCreativeModeTab(new ResourceLocation(MaxsMod.MOD_ID, "maxs_tab"),
-                builder -> builder.icon(() -> new ItemStack(ModItems.ADAMANT.get()))
+                builder -> builder.icon(() -> new ItemStack(ModItems.ADAMANT_SHARD.get()))
                         .title(Component.translatable("creativemodetab.maxs_tab")));
     }
 }

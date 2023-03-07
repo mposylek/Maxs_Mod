@@ -11,7 +11,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MaxsMod.MOD_ID);
 
-    public static final RegistryObject<Item> ADAMANT = ITEMS.register("adamant",
+    //Adamant shard item
+    public static final RegistryObject<Item> ADAMANT_SHARD = ITEMS.register("adamant_shard",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {

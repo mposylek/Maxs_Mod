@@ -1,6 +1,7 @@
 package net.max.maxsmod;
 
 import com.mojang.logging.LogUtils;
+import net.max.maxsmod.block.ModBlocks;
 import net.max.maxsmod.item.ModCreativeModeTabs;
 import net.max.maxsmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -29,6 +30,7 @@ public class MaxsMod
 
         // Call ModItems class to register added items
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -45,12 +47,17 @@ public class MaxsMod
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if (event.getTab() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.ADAMANT_BLOCK);
+        }
+
         if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.ADAMANT);
+            event.accept(ModItems.ADAMANT_SHARD);
         }
 
         if (event.getTab() == ModCreativeModeTabs.MAXS_TAB) {
-            event.accept(ModItems.ADAMANT);
+            event.accept(ModBlocks.ADAMANT_BLOCK);
+            event.accept(ModItems.ADAMANT_SHARD);
         }
     }
 
